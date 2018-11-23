@@ -1,23 +1,25 @@
-#include <stdio.h>
-#include <stdlib.h>
-
+#include "head.h"
+#include "vol.h"
+#include "convert.h"
 
 int main()
 {
-int length , width , height, volume;
+    double length , width , height, volume;
 
     printf("\t\t\t\t*******************************\n\t\t\t\t**Volume Calculator for cubes**\n\t\t\t\t*******************************\n");
-    printf("\n\n Enter the Length of the cube (cm)\n");
-    scanf("%d",&length);
 
-    printf("\n\n Enter the Width of the cube (cm)\n");
-    scanf("%d",&width);
+    printf("\n\nEnter the Length of the cube (cm)\n");
+    scanf("%lf",&length);
 
-    printf("\n\n Enter the Height of the cube (cm)\n");
-    scanf("%d",&height);
+    printf("\n\nEnter the Width of the cube (cm)\n");
+    scanf("%lf",&width);
 
-    volume = length * width * height;
+    printf("\n\nEnter the Height of the cube (cm)\n");
+    scanf("%lf",&height);
 
-    printf("\n \n The volume of the cube is %d (ml)\n",volume);
+    // Calling the vol function in vol.h
+    volume = vol(length, width, height);
+
+    printf("\n\nThe volume of the cube is %.2lf ml [ %.2lf L ]\n" ,volume, convert(volume)); // calling the convert function in convert.h
     return 0;
 }
